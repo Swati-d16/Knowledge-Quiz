@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wikipedia Quiz Generator Design System
+   Educational, modern, scholarly feel with deep navy tones and warm amber accents
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 224 71% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 12%;
+
+    --primary: 224 76% 28%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 224 71% 12%;
+
+    --muted: 220 14% 90%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 224 71% 12%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 87%;
+    --input: 220 13% 87%;
+    --ring: 224 76% 28%;
+
+    --radius: 0.75rem;
+
+    /* Custom quiz colors */
+    --easy: 142 76% 36%;
+    --medium: 38 92% 50%;
+    --hard: 0 84% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(224 76% 28%) 0%, hsl(224 76% 18%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(28 92% 50%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(224 71% 12% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(224 71% 12% / 0.1), 0 2px 4px -2px hsl(224 71% 12% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(224 71% 12% / 0.1), 0 4px 6px -4px hsl(224 71% 12% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(224 71% 12% / 0.1), 0 8px 10px -6px hsl(224 71% 12% / 0.1);
+    --shadow-glow: 0 0 40px hsl(38 92% 50% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 224 71% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 71% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 224 76% 28%;
+
+    --secondary: 224 50% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 224 50% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 224 71% 12%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 50% 18%;
+    --input: 224 50% 18%;
+    --ring: 212 26% 83%;
+
+    --easy: 142 76% 36%;
+    --medium: 38 92% 50%;
+    --hard: 0 62% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .quiz-card {
+    @apply bg-card rounded-xl border border-border p-6 shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .difficulty-badge-easy {
+    @apply bg-success/15 text-success border border-success/30;
+  }
+
+  .difficulty-badge-medium {
+    @apply bg-accent/15 text-accent border border-accent/30;
+  }
+
+  .difficulty-badge-hard {
+    @apply bg-destructive/15 text-destructive border border-destructive/30;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
